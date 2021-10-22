@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Container } from './components/ItemListContainer';
 import {Navbar} from './components/NavBar';
-import {ItemCount} from './components/ItemCount'
+import {ItemCount} from './components/ItemCount';
+import {Item} from './components/Item';
 
 function App() {
   const [container, setContainer] = useState('Ecommerce')
@@ -12,6 +13,7 @@ function App() {
         <Navbar/>
         <Container className="centrar" greeting={container} onTitle={handleContainer}/>
         <ItemCount/>
+        <Item></Item>
       </header>
     </div>
   );
