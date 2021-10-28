@@ -1,8 +1,10 @@
-import img from './img/img.jpg'
-export const Item = () => {
-    const data = [
-        { id: "remera1", title: "remera", price: 2800, stock: 10, img: img },
-        { id: "remera2", title: "remera", price: 2800, stock: 10, img: img },
-        { id: "remera3", title: "chomba", price: 3000, stock: 10, img: img },
-        { id: "remera4", title: "chomba", price: 3000, stock: 10, img: img },
-    ]}
+import img from './img/buzoazul.png'
+import img2 from './img/buzonegro.png'
+import img3 from './img/buzorosa.png'
+import img4 from './img/buzoturquesa.png'
+export const Item =  [
+        { id: "buzo1", title: "buzoAzul", price: 3500, img: img },
+        { id: "buzo2", title: "buzoNgero", price: 3500, img: img2 },
+        { id: "buzo3", title: "buzoRosa", price: 3500, img: img3 },
+        { id: "buzo4", title: "buzoTurquesa", price: 3500, img: img4 },
+]

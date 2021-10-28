@@ -1,37 +1,45 @@
-import { Item } from './Item.js';
-import { useEffect,useState } from 'react/cjs/react.development';
+import { useEffect } from 'react';
+import { useState } from 'react/cjs/react.development';
+import {Item} from './item.js';
+import Producto from './ItemListContainer';
 
-const Productos = () =>{
-    const [products, setProductos] = useState([]);
-    
-    const renderProductos =() =>(
-        <div>
-            {products.map((data => (
-                <Item
-                key={data.id}
-                title={data.title}
-                price={data.price}
-                stock={data.stock}
-                img={data.img}/>
-                ))}
-                </div>
-            )
-const getProductos = () => {
-    Item.get('./Item.js').then(res =>{
-        setProductos(res.data);
-    })
-};
+export default function ItemList(){
+    const [productos, setProductos] = useState([]);
+    useEffect (() => {
+        const task = new Promise ((resolve) => {
+            setTimeout(() =>{
+                resolve (Item);
+            }, 4000);
+        });
+        task.then (
+            (result) =>{
+                setProductos(result);
+                return "retorno uno"
+            },
+            (error) =>{
+                console.log(error)
+                return "error"
+            },
+        )
+        .catch((err)=>{
+            console.log("soy el catch ", err)
+        })
+        .finally(()=>{
+            console.log("me ejecuto siempre")
+        })
+    }, []);
 
-useEffect(() =>{
-    getProductos();
-}, 4000, [])
+useEffect(() => {
 
+},[productos]) 
 
-return(
-    <div>
-        <h5></h5>
-        <img></img>
-        <p></p>
-    </div>
-)
-};
+console.log("productos ", productos)
+    return(
+        <div className="app">
+            {productos && productos.map((producto)=> {
+           return( <Producto key={producto.id} name={producto.title} price={producto.price} img={producto.img} />)
+            })}
+        </div>
+    )}
+
+    export default ItemList;
