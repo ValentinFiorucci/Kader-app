@@ -1,15 +1,15 @@
+import './ItemListContainer.css';
+import {Item} from './Item';
 import { useEffect } from 'react';
 import { useState } from 'react/cjs/react.development';
-import {Item} from './Item';
-import Producto from './ItemListContainer';
-
-function ItemList(){
-    const [productos, setProductos] = useState([]);
+import ProductoDos from './ItemListContainer';
+function GetItem () {
+  const [productos, setProductos] = useState([]);
     useEffect (() => {
         const task = new Promise ((resolve) => {
             setTimeout(() =>{
                 resolve (Item);
-            }, 4000);
+            }, 2000);
         });
         task.then (
             (result) =>{
@@ -28,19 +28,17 @@ function ItemList(){
             console.log("me ejecuto siempre")
         })
     }, []);
+    useEffect(() => {
 
-useEffect(() => {
-
-},[productos])
-
-console.log("productos ", productos)
-    return(
-        <div className="app">
-            {productos && productos.map((producto)=> {
-return( <Producto key={producto.id} name={producto.title} price={producto.price} img={producto.img} stock={producto.stock} />)
-            })}
-        </div>
-    )
-}
-
-export default ItemList;
+    },[productos])
+    
+    console.log("productos ", productos)
+        return(
+            <div className="app">
+                {productos && productos.map((productoDos)=> {
+    return( <ProductoDos key={productoDos.id} name={productoDos.title} price={productoDos.price} img={productoDos.img} stock={producto.stock} />)
+                })}
+            </div>
+        )
+              }
+  export default GetItem;

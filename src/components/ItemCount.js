@@ -1,10 +1,9 @@
 import { useState } from "react";
-import img from './img/img.jpg'
 import './ItemCount.css';
-export const ItemCount = () => {
+const ItemCount = () => {
     const [Carrito, setCarrito] = useState(0)
     const add = () =>{
-        if (Carrito <10){
+        if (Carrito < 10){
             setCarrito(Carrito +1)
         } else { alert('No hay más stock disponible!')}
     }
@@ -13,15 +12,12 @@ export const ItemCount = () => {
     }
     return (
         <div className="card-ubicada">
-            <img width="300px" src={img} />
-            <div>
-                <h1>Remera</h1>
-                <p>
-                    Remeras añadidas :{Carrito}
-                </p>
                 <button onClick={add}>agregar</button>
                 <button onClick={decreace}>eliminar</button>
+                <p className="carrito">
+                 {Carrito}
+                </p>
             </div>
-        </div>
     )
 }
+export default ItemCount
