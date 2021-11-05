@@ -1,44 +1,25 @@
-import './ItemListContainer.css';
-import {Item} from './Item';
-import { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
-import ProductoDos from './ItemListContainer';
-function GetItem () {
-  const [productos, setProductos] = useState([]);
-    useEffect (() => {
-        const task = new Promise ((resolve) => {
-            setTimeout(() =>{
-                resolve (Item);
-            }, 2000);
-        });
-        task.then (
-            (result) =>{
-                setProductos(result);
-                return "retorno uno"
-            },
-            (error) =>{
-                console.log(error)
-                return "error"
-            },
-        )
-        .catch((err)=>{
-            console.log("soy el catch ", err)
-        })
-        .finally(()=>{
-            console.log("me ejecuto siempre")
-        })
-    }, []);
-    useEffect(() => {
+import { useEffect, useState } from "react";
+import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
+import { Item } from "./Item";
 
-    },[productos])
-    
-    console.log("productos ", productos)
-        return(
-            <div className="app">
-                {productos && productos.map((productoDos)=> {
-    return( <ProductoDos key={productoDos.id} name={productoDos.title} price={productoDos.price} img={productoDos.img} stock={producto.stock} />)
-                })}
-            </div>
+
+export const ItemDetailContainer = () => {
+const {id} = useParams()
+const [producto, setProducto] = useState ([]);
+console.log(id)
+useEffect(() =>{
+    Item.filter((e) =>{
+        if(e.id===id){
+            return setProducto(e)
+        }
+        return null
+    }),[]})
+    console.log(producto)
+    return(
+        <ItemDetail title={producto.title} price={producto.price} img={producto.img}/>
         )
-              }
-  export default GetItem;
+        
+        
+}
+export default ItemDetailContainer;

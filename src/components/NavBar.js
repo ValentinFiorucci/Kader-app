@@ -4,8 +4,8 @@ import './NavBar.css';
 import './CartWidget';
 import img from './img/carrito.png'
 export const Navbar = () => {
-    const styles = { backgroundColor: 'grey' }
-    const menu = {backgroundColor: 'darkcyan'}
+    const styles = { backgroundColor: 'black' }
+    const menu = {backgroundColor: 'black'}
     return (
         <body style={styles}>
         <div className="container">

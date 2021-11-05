@@ -1,17 +1,16 @@
-const ProductoDos = ({ title, price, img, stock }) => {
+import ItemCount from "./ItemCount";
+const ItemDetail = ({id ,title, price ,img, stock}) =>{
   return (
-    <div className="center-card">
-    <div className = "card-Producto">
-    <div>
-        <img src={img} class="card-img" alt="Imagen carrito"/>
-    </div>
-    <div className = "texto-Card">
-            <h5>{title}</h5>
-            <p>buzo cuello redondo</p>
-            <p>material: 100% algodon </p>
-    </div>
+<div>
+  <div>
+    <img src={img} />
+  </div>
+    <p>{price}</p>
+    <h5>{title}</h5>
+    <p>{stock}</p>
+    <div><ItemCount/></div>
 </div>
-</div>
-  );
+  )
 }
-export default ProductoDos;
+
+export default ItemDetail;
